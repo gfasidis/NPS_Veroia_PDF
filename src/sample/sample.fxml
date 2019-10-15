@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane id="panelVeria" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="658.0" prefWidth="996.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView id="endekadaTable" layoutX="37.0" layoutY="68.0" prefHeight="420.0" prefWidth="310.0">
+         <columns>
+            <TableColumn id="arithmos" prefWidth="52.0" text="NUM" />
+            <TableColumn id="name" prefWidth="153.0" text="NAME" />
+            <TableColumn id="code" prefWidth="65.0" text="CODE" />
+            <TableColumn id="position" minWidth="0.0" prefWidth="39.0" text="POS" />
+         </columns>
+      </TableView>
+      <Label id="endekada" alignment="CENTER" layoutX="92.0" layoutY="32.0" prefHeight="17.0" prefWidth="197.0" text="ΕΝΔΕΚΑΔΑ" textAlignment="CENTER" />
+      <Button id="entekadaBtn" layoutX="113.0" layoutY="551.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="154.0" text="Save Data" />
+      <Label id="endekadaSelected" contentDisplay="CENTER" layoutX="242.0" layoutY="507.0" prefHeight="17.0" prefWidth="106.0" text="SELECTED 00/11" textAlignment="RIGHT" />
+      <TableView id="anaplaromatikoiTable" layoutX="649.0" layoutY="68.0" prefHeight="420.0" prefWidth="310.0">
+         <columns>
+            <TableColumn id="arithmos" prefWidth="52.0" text="NUM" />
+            <TableColumn id="name" prefWidth="153.0" text="NAME" />
+            <TableColumn id="code" minWidth="2.0" prefWidth="65.0" text="CODE" />
+            <TableColumn id="position" minWidth="2.0" prefWidth="39.0" text="POS" />
+         </columns>
+      </TableView>
+      <Label id="anapliromaitkoi" alignment="CENTER" layoutX="706.0" layoutY="32.0" prefHeight="17.0" prefWidth="197.0" text="ΑΝΠΛΗΡΩΜΑΤΙΚΟΙ" textAlignment="CENTER" />
+      <Button id="anapliromatikoiBtn" layoutX="727.0" layoutY="551.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="154.0" text="Save Data" />
+      <Label id="anapliromatikoiSelected" contentDisplay="CENTER" layoutX="869.0" layoutY="507.0" text="SELECTED 0/7" textAlignment="RIGHT" />
+      <Button id="writeToPdf" layoutX="454.0" layoutY="555.0" mnemonicParsing="false" text="Export PDF" />
+      <TextField id="captainNumber" layoutX="37.0" layoutY="502.0" prefHeight="17.0" prefWidth="119.0" promptText="Captain Number" />
+      <Label layoutX="357.0" layoutY="610.0" text="Copyright © George Fasidis, 2019 (iFasMan7)" textFill="#5e5e5e" />
+      <VBox alignment="CENTER" layoutX="399.0" layoutY="68.0" prefHeight="420.0" prefWidth="197.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="77.0" prefWidth="197.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="219.0" text="Στήλη NUM: Αριθμός Παίκτη" />
+                  <Label prefHeight="17.0" prefWidth="217.0" text="Στήλη NAME: Όνομα Παίκτη" />
+                  <Label prefHeight="17.0" prefWidth="246.0" text="Στήλη POS: Θέση Παίκτη" />
+                  <Label prefHeight="17.0" prefWidth="218.0" text="Στήλη CODE: Αριθμός Δελτίου" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+            </VBox>
+            <Button id="importPlayers" alignment="CENTER" mnemonicParsing="false" text="ΕΙΣΑΓΩΓΗ ΠΑΙΚΤΩΝ" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+            <Button id="clearTables" alignment="CENTER" mnemonicParsing="false" text="CLEAR TABLES" textAlignment="CENTER" />
+            <ImageView fitHeight="154.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@veria-nfc.png" />
+               </image>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </ImageView>
+         </children>
+      </VBox>
+   </children>
+</Pane>

@@ -1,0 +1,31 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="NPS Veroia PDF">
+    <output-path>$PROJECT_DIR$/out/artifacts/NPS_Veroia_PDF</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="Εφαρμογή για την ευκολότερη διαχείρηση των παικτών στο φύλλο αγώνα" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="icons">
+          <JavaFxApplicationIcons>
+            <option name="linuxIcon" value="$PROJECT_DIR$/src/sample/veria-nfc.ico" />
+            <option name="macIcon" value="$PROJECT_DIR$/src/sample/veria-nfc.ico" />
+            <option name="windowsIcon" value="$PROJECT_DIR$/src/sample/veria-nfc.ico" />
+          </JavaFxApplicationIcons>
+        </option>
+        <option name="title" value="NPS Veroia 2019 PDF" />
+        <option name="vendor" value="" />
+        <option name="version" value="1.0" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="NPS_Veroia_PDF.jar">
+        <element id="module-output" name="NPS Veroia PDF" />
+      </element>
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/commons-logging-1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/fontbox-2.0.17.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/gembox-spreadsheet.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/pdfbox-2.0.17.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
