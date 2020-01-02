@@ -56,6 +56,8 @@ public class Main extends Application {
     private TextField captainNumber;
     private String captainNo;
 
+    private CheckBox homeCheckBox;
+    private CheckBox awayCheckBox;
     private Button writeToPDF;
 
     private String[] columnNames;
@@ -78,12 +80,30 @@ public class Main extends Application {
         endekadaPlayers = new ArrayList<>();
         anapliroamtikoiPlayers = new ArrayList<>();
 
+        homeCheckBox = new CheckBox();
+        homeCheckBox = (CheckBox) primaryStage.getScene().lookup("#homeCheckBox");
+
+        awayCheckBox = new CheckBox();
+        awayCheckBox = (CheckBox) primaryStage.getScene().lookup("#awayCheckBox");
+
         writeToPDF = new Button();
         writeToPDF = (Button) primaryStage.getScene().lookup("#writeToPdf");
         writeToPDF.setDisable(true);
         writeToPDF.setOnAction(event -> {
             try {
-                writeDataPDF();
+                if (homeCheckBox.isSelected() && awayCheckBox.isSelected()){
+                    alertDialog(Alert.AlertType.WARNING,"Warning Dialog","Wrong Data","Δεν γίνεται να είναι επιλεγμένα και το home και το away. Παρακαλώ δοκιμάστε ξανά");
+                    return;
+                } else if (!homeCheckBox.isSelected() && !awayCheckBox.isSelected()){
+                    alertDialog(Alert.AlertType.WARNING,"Warning Dialog","Wrong Data","Πρέπει να είναι επιλεγμένα το home ή το away. Παρακαλώ δοκιμάστε ξανά");
+                    return;
+                }
+
+                if (homeCheckBox.isSelected())
+                    writeDataPDF("players_home.pdf");
+                else if (awayCheckBox.isSelected())
+                    writeDataPDF("players_away.pdf");
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -245,14 +265,13 @@ public class Main extends Application {
 
     // MARK : WRITE DATA TO PDF
 
-    private void writeDataPDF() throws IOException {
+    private void writeDataPDF(String pdfName) throws IOException {
         PDDocument pdfDocument;
 //        FileChooser fileChooser = new FileChooser();
 //        fileChooser.setTitle("Άνοιγμα της Default φόρμας...");
 //        File file = fileChooser.showOpenDialog(writeToPDF.getScene().getWindow());
+        InputStream inputStream = Main.class.getResourceAsStream("/sample/" + pdfName);
 
-        InputStream inputStream = Main.class.getResourceAsStream("/sample/players.pdf");
-        System.out.println(inputStream);
         if (inputStream != null) {
             pdfDocument = PDDocument.load(inputStream);
             PDDocumentCatalog docCatalog = pdfDocument.getDocumentCatalog();
@@ -310,7 +329,6 @@ public class Main extends Application {
             //Fill anapliromatikoi
             Player gkAnapPlayer = Player.getGK(anapliroamtikoiPlayers);
             if (gkAnapPlayer != null) {
-                System.out.println("I am here");
                 acroForm.getField("anaplNo1").setValue(gkAnapPlayer.getNumber());
                 acroForm.getField("anaplName1").setValue(gkAnapPlayer.getName());
                 acroForm.getField("anaplCode1").setValue(gkAnapPlayer.getCode());
@@ -325,7 +343,6 @@ public class Main extends Application {
             }
             anapliroamtikoiPlayers.sort(Player.playersComparator);
 
-            System.out.println(anapliroamtikoiPlayers.size());
             int i = 2;
             for (Player player : anapliroamtikoiPlayers) {
 //            System.out.println(i);
